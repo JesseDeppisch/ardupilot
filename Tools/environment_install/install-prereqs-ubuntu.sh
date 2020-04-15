@@ -3,10 +3,10 @@ echo "---------- $0 start ----------"
 set -e
 set -x
 
-if [ $EUID == 0 ]; then
-    echo "Please do not run this script as root; don't sudo it!"
-    exit 1
-fi
+
+
+
+
 
 OPT="/opt"
 RELEASE_CODENAME=$(lsb_release -c -s)
