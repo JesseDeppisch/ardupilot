@@ -188,7 +188,7 @@ void Rover::rpm_update(void)
 
     // Calculate the delta_angle covered since last update (copying AP_WheelEncoder::get_delta_angle() method)
     float delta_angle = 0.0f; // Angle, in radians
-    float curr_RPM = rpm_sensor.get_RPM(SENS_USING);
+    float curr_RPM = rpm_sensor.get_rpm(SENS_USING);
     if (curr_RPM == 0) {
         delta_angle = 0.0f; // Protect against divide by zero
     } else {
