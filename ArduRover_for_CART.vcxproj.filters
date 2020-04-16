@@ -1,17 +1,397 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="APMrover2">
+      <UniqueIdentifier>{9a95c2cb-ac79-47bf-99e1-a651f76c48de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="libraries">
+      <UniqueIdentifier>{355954be-cb38-43e5-b0e6-e1c8c057dbef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="libraries\AP_RPM">
+      <UniqueIdentifier>{6d3cbb95-7fa0-451a-84af-83931c3e2dc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libraries\AP_RPM\examples">
+      <UniqueIdentifier>{c76c60f1-a038-4b8a-a894-7a897598d6df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libraries\AP_WheelEncoder">
+      <UniqueIdentifier>{2d69966a-8940-475b-b1a1-8f1d2ad23a3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libraries\AP_NavEKF3">
+      <UniqueIdentifier>{64bc4e99-0c57-4434-9e83-b804ed0ba478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libraries\AP_NavEKF">
+      <UniqueIdentifier>{7429422a-50a4-4da6-9f0e-5b7c6ffce352}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libraries\AP_Math">
+      <UniqueIdentifier>{885a5980-41eb-4b23-9ec9-4ceff5efb396}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="APMrover2\afs_rover.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\AP_Arming.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\AP_MotorsUGV.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\AP_Rally.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\balance_bot.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\commands.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\compat.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\crash_check.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\cruise_learn.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\ekf_check.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\failsafe.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\fence.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\GCS_Mavlink.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\GCS_Rover.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\Log.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_acro.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_auto.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_follow.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_guided.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_hold.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_loiter.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_manual.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_rtl.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_simple.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_smart_rtl.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\mode_steering.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\motor_test.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\Parameters.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\radio.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\RC_Channel.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\Rover.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\sailboat.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\sensors.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\Steering.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\system.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="APMrover2\version.cpp">
+      <Filter>APMrover2</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_RPM\AP_RPM.cpp">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_RPM\RPM_Backend.cpp">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_RPM\RPM_Pin.cpp">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_RPM\RPM_SITL.cpp">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_WheelEncoder\AP_WheelEncoder.cpp">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_WheelEncoder\AP_WheelRateControl.cpp">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_WheelEncoder\WheelEncoder_Backend.cpp">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_WheelEncoder\WheelEncoder_Quadrature.cpp">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_WheelEncoder\WheelEncoder_SITL_Quadrature.cpp">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_AirDataFusion.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_Control.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_core.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_GyroBias.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_Logging.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_MagFusion.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_Measurements.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_OptFlowFusion.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_Outputs.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_PosVelFusion.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_RngBcnFusion.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF3\AP_NavEKF3_VehicleStatus.cpp">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF\AP_Nav_Common.cpp">
+      <Filter>libraries\AP_NavEKF</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_NavEKF\AP_NavEKF_core_common.cpp">
+      <Filter>libraries\AP_NavEKF</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\AP_GeodesicGrid.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\AP_Math.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\crc.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\location.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\location_double.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\matrix_alg.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\matrix3.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\matrixN.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\polygon.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\quaternion.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\spline5.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\vector2.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\AP_Math\vector3.cpp">
+      <Filter>libraries\AP_Math</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="APMrover2\afs_rover.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\AP_Arming.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\AP_MotorsUGV.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\AP_Rally.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\config.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\defines.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\GCS_Mavlink.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\GCS_Rover.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\mode.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\Parameters.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\RC_Channel.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\Rover.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\sailboat.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="APMrover2\version.h">
+      <Filter>APMrover2</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_RPM\AP_RPM.h">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_RPM\RPM_Backend.h">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_RPM\RPM_Pin.h">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_RPM\RPM_SITL.h">
+      <Filter>libraries\AP_RPM</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_WheelEncoder\AP_WheelEncoder.h">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_WheelEncoder\AP_WheelRateControl.h">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_WheelEncoder\WheelEncoder_Backend.h">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_WheelEncoder\WheelEncoder_Quadrature.h">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_WheelEncoder\WheelEncoder_SITL_Quadrature.h">
+      <Filter>libraries\AP_WheelEncoder</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_NavEKF3\AP_NavEKF3.h">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_NavEKF3\AP_NavEKF3_Buffer.h">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_NavEKF3\AP_NavEKF3_core.h">
+      <Filter>libraries\AP_NavEKF3</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_NavEKF\AP_Nav_Common.h">
+      <Filter>libraries\AP_NavEKF</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_NavEKF\AP_NavEKF_core_common.h">
+      <Filter>libraries\AP_NavEKF</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\AP_GeodesicGrid.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\AP_Math.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\crc.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\definitions.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\location.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\matrix3.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\matrixN.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\polygon.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\quaternion.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\rotations.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\spline5.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\vector2.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\vector3.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\AP_Math\vectorN.h">
+      <Filter>libraries\AP_Math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="APMrover2\createTags">
+      <Filter>APMrover2</Filter>
+    </None>
+    <None Include="APMrover2\Makefile.waf">
+      <Filter>APMrover2</Filter>
+    </None>
+    <None Include="APMrover2\wscript">
+      <Filter>APMrover2</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="APMrover2\release-notes.txt">
+      <Filter>APMrover2</Filter>
+    </Text>
   </ItemGroup>
 </Project>

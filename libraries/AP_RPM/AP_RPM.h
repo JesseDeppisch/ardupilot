@@ -72,6 +72,14 @@ public:
     void update(void);
 
     /*
+     Return last time the sensor was updated
+     Written by Jesse as part of a hacky edit, so prone to breaking
+    */
+    uint32_t get_last_reading_ms(uint8_t instance) const {
+        return state[instance].last_reading_ms;
+    }
+
+    /*
       return RPM for a sensor. Return -1 if not healthy
      */
     float get_rpm(uint8_t instance) const {

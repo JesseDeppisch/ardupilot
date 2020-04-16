@@ -272,6 +272,8 @@ private:
     float wheel_encoder_last_angle_rad[WHEELENCODER_MAX_INSTANCES];     // distance in radians at time of last update to EKF
     uint32_t wheel_encoder_last_reading_ms[WHEELENCODER_MAX_INSTANCES]; // system time of last ping from each encoder
     uint8_t wheel_encoder_last_index_sent;                              // index of the last wheel encoder sent to the EKF
+    // TODO: Variables directly below are created by Jesse and are hacky.
+    const float WHEEL_RADIUS = 0.2159; // Radius of wheel, in meters (this is = 8.5 inches)
 
     // True when we are doing motor test
     bool motor_test;

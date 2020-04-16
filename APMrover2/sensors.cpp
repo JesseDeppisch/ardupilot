@@ -2,6 +2,7 @@
 
 #include <AP_RangeFinder/RangeFinder_Backend.h>
 #include <AP_VisualOdom/AP_VisualOdom.h>
+#include "../libraries/AP_Math/vector3.h"
 
 // check for new compass data - 10Hz
 void Rover::update_compass(void)
@@ -39,9 +40,10 @@ void Rover::update_wheel_encoder()
     if (g2.wheel_encoder.num_sensors() == 0) {
         return;
     }
-
+    
     // update encoders
-    g2.wheel_encoder.update();
+    //rpm_sensor.update();
+    g2.wheel_encoder.update(); // TODO: Not sure if I should update these since they're not actually connected
 
     // save cumulative distances at current time (in meters) for reporting to GCS
     for (uint8_t i = 0; i < g2.wheel_encoder.num_sensors(); i++) {
@@ -136,12 +138,77 @@ void Rover::read_airspeed(void)
 /*
   update RPM sensors
  */
+// TODO: edited by Jesse
 void Rover::rpm_update(void)
 {
+    int SENS_USING = 0;
     rpm_sensor.update();
     if (rpm_sensor.enabled(0) || rpm_sensor.enabled(1)) {
         if (should_log(MASK_LOG_RC)) {
             logger.Write_RPM(rpm_sensor);
         }
+        // Also, figure out which one we're using // TODO - remove this once we solder the pins or test this out
+        if (!rpm_sensor.enabled(0)) {
+            SENS_USING = 1;
+        }
     }
+    else {
+        // Don't proceed with the rest of the method if no RPM sensor is connected.
+        return; 
+    }
+
+    // send wheel encoder delta angle and delta time to EKF
+    // this should not be done at more than 50hz
+    // initialise on first iteration
+    if (!wheel_encoder_initialised) {
+        wheel_encoder_initialised = true;
+        wheel_encoder_last_reading_ms[0] = rpm_sensor.get_last_reading_ms(SENS_USING);
+        return;
+    }
+
+    // get current time, total delta angle (since startup) and update time from sensor
+    //const uint32_t sensor_reading_ms = g2.wheel_encoder.get_last_reading_ms(0);
+    const uint32_t sensor_reading_ms = rpm_sensor.get_last_reading_ms(SENS_USING);
+    const uint32_t now_ms = AP_HAL::millis();
+
+    // calculate delta time using time between sensor readings or time since last send to ekf (whichever is shorter)
+    uint32_t sensor_diff_ms = sensor_reading_ms - wheel_encoder_last_reading_ms[0];
+    if (sensor_diff_ms == 0 || sensor_diff_ms > 100) {
+        // if no sensor update or time difference between sensor readings is too long use time since last send to ekf
+        sensor_diff_ms = now_ms - wheel_encoder_last_reading_ms[0];
+        wheel_encoder_last_reading_ms[0] = now_ms;
+    }
+    else {
+        wheel_encoder_last_reading_ms[0] = sensor_reading_ms;
+    }
+
+    // Convert the uint32_t to a float so we can use the delta_time in our calculation to find angle
+    // (idea taken from WheelEncoder_SITL_Quadrature.h)
+    const float delta_time = sensor_diff_ms * 0.001f; // Time difference, in seconds
+
+    // Calculate the delta_angle covered since last update (copying AP_WheelEncoder::get_delta_angle() method)
+    float delta_angle = 0.0f; // Angle, in radians
+    float curr_RPM = rpm_sensor.get_RPM(SENS_USING);
+    if (curr_RPM == 0) {
+        delta_angle = 0.0f; // Protect against divide by zero
+    } else {
+        delta_angle = curr_RPM * (delta_time / 60.0f);
+    }
+
+    // Create a dummy vector that tells the Pixhawk where the wheel is located
+    // TODO - actually measure this, then set the parameter as outlined in the guide online
+    Vector3f fake_wheel_offset = Vector3f(0.0, 0.0, 0.0);
+
+    // Actually update the  EKF based on our data
+    /* delAng is the measured change in angular position from the previous measurement where a positive rotation is produced by forward motion of the vehicle (rad)
+        * delTime is the time interval for the measurement of delAng (sec)
+        * timeStamp_ms is the time when the rotation was last measured (msec)
+        * posOffset is the XYZ body frame position of the wheel hub (m)
+        */
+    EKF3.writeWheelOdom(delta_angle,
+        delta_time,
+        wheel_encoder_last_reading_ms[0],
+        fake_wheel_offset,
+        WHEEL_RADIUS);
+    // TODO - will this command straight up fail since I don't have wheel odometry enabled in the parameters?
 }
